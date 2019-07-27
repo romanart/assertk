@@ -77,7 +77,7 @@ sealed class Assert<out T>(val name: String?, internal val context: Any?) {
      * assertThat(true, name = "true").isTrue()
      * ```
      */
-    abstract fun <R> assertThat(actual: R, name: String? = this.name): Assert<R>
+    abstract fun <R> assertThat(actual: R, name: String? = this.name, context: Any? = this.context): Assert<R>
 
     @Suppress("DeprecatedCallableAddReplaceWith")
     @Deprecated(
@@ -95,13 +95,13 @@ sealed class Assert<out T>(val name: String?, internal val context: Any?) {
 internal class ValueAssert<out T>(val value: T, name: String?, context: Any?) :
     Assert<T>(name, context) {
 
-    override fun <R> assertThat(actual: R, name: String?): Assert<R> =
+    override fun <R> assertThat(actual: R, name: String?, context: Any?): Assert<R> =
         ValueAssert(actual, name, if (context != null || this.value === actual) context else this.value)
 }
 
 internal class FailingAssert<out T>(val error: Throwable, name: String?, context: Any?) :
     Assert<T>(name, context) {
-    override fun <R> assertThat(actual: R, name: String?): Assert<R> = FailingAssert(error, name, context)
+    override fun <R> assertThat(actual: R, name: String?, context: Any?): Assert<R> = FailingAssert(error, name, context)
 }
 
 /**
@@ -200,7 +200,7 @@ fun <T> assert(actual: T, name: String? = null): Assert<T> = assertThat(actual, 
  * assertThat(true, name = "true").isTrue()
  * ```
  */
-fun <T> assertThat(actual: T, name: String? = null): Assert<T> = ValueAssert(actual, name, null)
+fun <T> assertThat(actual: T, name: String? = null, context: Any? = null): Assert<T> = ValueAssert(actual, name, context)
 
 /**
  * Asserts on the given property reference using its name, if no explicit name is specified. This method
