@@ -23,23 +23,29 @@ fun <T> Assert<T>.toStringFun() = prop("toString", Any?::toString)
  */
 fun <T : Any> Assert<T>.hashCodeFun() = prop("hashCode", Any::hashCode)
 
+private fun equals(a: Any?, b: Any?) = a == b
+
 /**
- * Asserts the value is equal to the expected one, using `==`.
+ * Asserts the value is equal to the expected one. You can pass in an optional `equivalent`
+ * function for comparison, by default it uses `==`.
+ *
  * @see [isNotEqualTo]
  * @see [isSameAs]
  */
-fun <T> Assert<T>.isEqualTo(expected: Any?) = given { actual ->
-    if (actual == expected) return
+fun <T, E> Assert<T>.isEqualTo(expected: E, equivalent: (T, E) -> Boolean = ::equals) = given { actual ->
+    if (equivalent(actual, expected)) return
     fail(expected, actual)
 }
 
 /**
- * Asserts the value is not equal to the expected one, using `!=`.
+ * Asserts the value is not equal to the expected one. You can pass in an optional `equivalent` function for comparision,
+ * by default it uses `==`.
+ *
  * @see [isEqualTo]
  * @see [isNotSameAs]
  */
-fun <T> Assert<T>.isNotEqualTo(expected: Any?) = given { actual ->
-    if (actual != expected) return
+fun <T, E> Assert<T>.isNotEqualTo(expected: E, equivalent: (T, E) -> Boolean = ::equals) = given { actual ->
+    if (!equivalent(actual, expected)) return
     val showExpected = show(expected)
     val showActual = show(actual)
     // if they display the same, only show one.
@@ -121,7 +127,11 @@ fun <T : Any> Assert<T?>.isNull() = given { actual ->
  * }
  * ```
  */
-@Deprecated(message = "Use isNotNull() instead", replaceWith = ReplaceWith("isNotNull().let(f)"), level = DeprecationLevel.ERROR)
+@Deprecated(
+    message = "Use isNotNull() instead",
+    replaceWith = ReplaceWith("isNotNull().let(f)"),
+    level = DeprecationLevel.ERROR
+)
 fun <T : Any> Assert<T?>.isNotNull(f: (Assert<T>) -> Unit) {
     isNotNull().let(f)
 }
@@ -190,7 +200,11 @@ fun <T : Any> Assert<T>.isNotInstanceOf(kclass: KClass<out T>) = given { actual 
  * @see [isNotInstanceOf]
  * @see [hasClass]
  */
-@Deprecated(message = "Use isInstanceOf(kclass) instead.", replaceWith = ReplaceWith("isInstanceOf(kclass).let(f)"), level = DeprecationLevel.ERROR)
+@Deprecated(
+    message = "Use isInstanceOf(kclass) instead.",
+    replaceWith = ReplaceWith("isInstanceOf(kclass).let(f)"),
+    level = DeprecationLevel.ERROR
+)
 fun <T : Any, S : T> Assert<T>.isInstanceOf(kclass: KClass<S>, f: (Assert<S>) -> Unit) {
     isInstanceOf(kclass).let(f)
 }

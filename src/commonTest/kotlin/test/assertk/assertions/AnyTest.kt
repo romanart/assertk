@@ -35,6 +35,17 @@ class AnyTest {
         assertEquals("expected:<[not ]test> but was:<[]test>", error.message)
     }
 
+    @Test fun isEqualTo_equivalent_passes() {
+        assertThat(subject).isEqualTo(BasicObject("different")) { _, _ -> true }
+    }
+
+    @Test fun isEqualTo_not_equivalent_fails() {
+        val error = assertFails {
+            assertThat(subject).isEqualTo(BasicObject("test")) { _, _ -> false }
+        }
+        assertEquals("expected:<test> but was:<test>", error.message)
+    }
+
     @Test fun isNotEqualTo_non_equal_objects_passes() {
         val nonEqual = BasicObject("not test")
         assertThat(subject).isNotEqualTo(nonEqual)
@@ -46,6 +57,17 @@ class AnyTest {
             assertThat(subject).isNotEqualTo(equal)
         }
         assertEquals("expected to not be equal to:<test>", error.message)
+    }
+
+    @Test fun isNotEqualTo_equivalent_passes() {
+        assertThat(subject).isNotEqualTo(BasicObject("different")) { _, _ -> false }
+    }
+
+    @Test fun isNotEqualTo_not_equivalent_fails() {
+        val error = assertFails {
+            assertThat(subject).isNotEqualTo(BasicObject("different")) { _, _ -> true }
+        }
+        assertEquals("expected:<different> not to be equal to:<test>", error.message)
     }
 
     @Test fun isSameAs_same_objects_passes() {
