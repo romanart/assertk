@@ -5,6 +5,9 @@ _defaults: &defaults
   working_directory: ~/code
   environment:
     JVM_OPTS: -Xmx3200m
+  branches:
+    ignore:
+      - gh-pages
 _gradle_checksum: &gradle_checksum
   name: Generate Cache Checksum
   command: >-
