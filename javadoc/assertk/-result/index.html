@@ -1,0 +1,61 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Result - </title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">assertk</a>&nbsp;/&nbsp;<a href="./index.html">Result</a><br/>
+<br/>
+<h1>Result</h1>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><s><span class="identifier">Result</span></s><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code><br/>
+<strong>Deprecated:</strong> Temporary replacement for kotlin.Result until https://youtrack.jetbrains.com/issue/KT-32450 is fixed.<br/>
+<br/>
+<p><strong>Platform and version requirements:</strong> Common</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="exception-or-null.html">exceptionOrNull</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">exceptionOrNull</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="get-or-null.html">getOrNull</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getOrNull</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Companion Object Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="failure.html">failure</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">failure</span><span class="symbol">(</span><span class="identifier" id="assertk.Result.Companion$failure(kotlin.Throwable)/error">error</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Result</span></a><span class="symbol">&lt;</span><a href="failure.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="run-catching.html">runCatching</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">runCatching</span><span class="symbol">(</span><span class="identifier" id="assertk.Result.Companion$runCatching(kotlin.Function0((assertk.Result.Companion.runCatching.R)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="run-catching.html#R"><span class="identifier">R</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Result</span></a><span class="symbol">&lt;</span><a href="run-catching.html#R"><span class="identifier">R</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="success.html">success</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">success</span><span class="symbol">(</span><span class="identifier" id="assertk.Result.Companion$success(assertk.Result.Companion.success.T)/value">value</span><span class="symbol">:</span>&nbsp;<a href="success.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Result</span></a><span class="symbol">&lt;</span><a href="success.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

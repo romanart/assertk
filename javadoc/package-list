@@ -1,0 +1,10 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:assertk$value#java.lang.ThreadLocal((assertk.value.T))assertk/java.lang.-thread-local/value.html
+$dokka.location:assertk.ThreadLocalRefassertk/-thread-local-ref/index.html
+$dokka.location:assertk.ThreadLocalRef$<init>()assertk/-thread-local-ref/-thread-local-ref/-init-.html
+$dokka.location:assertk.ThreadLocalRef$get()assertk/-thread-local-ref/-thread-local-ref/get.html
+$dokka.location:assertk.ThreadLocalRef$set(assertk.ThreadLocalRef.T)assertk/-thread-local-ref/-thread-local-ref/set.html
+assertk
+assertk.assertions
+assertk.assertions.support
