@@ -1,0 +1,417 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>assertk.Assert - assertk</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">assertk</a>&nbsp;/&nbsp;<a href="../index.html">assertk</a>&nbsp;/&nbsp;<a href="./index.html">Assert</a><br/>
+<br/>
+<h1>Assert</h1>
+<a name="assertk.Assert"></a>
+(common, iosArm64, iosX64, js, jvm, linux, macos) <code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Assert</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>An assertion. Holds an actual value to assertion on and an optional name.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="assert-that.html#assertk.Assert$assertThat(assertk.Assert.assertThat.R, kotlin.String)">assertThat</a></p>
+</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(common, iosArm64, iosX64, js, jvm, linux, macos) 
+<h4><a href="actual.html">actual</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><s><span class="identifier">actual</span></s><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+(common, iosArm64, iosX64, js, jvm, linux, macos) 
+<h4><a href="name.html">name</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">name</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(common, iosArm64, iosX64, js, jvm, linux, macos) 
+<h4><a href="assert.html">assert</a></h4>
+</td>
+<td>
+<p>Asserts on the given value with an optional name.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <s><span class="identifier">assert</span></s><span class="symbol">(</span><span class="identifier" id="assertk.Assert$assert(assertk.Assert.assert.R, kotlin.String)/actual">actual</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">, </span><span class="identifier" id="assertk.Assert$assert(assertk.Assert.assert.R, kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;this.name<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(common, iosArm64, iosX64, js, jvm, linux, macos) 
+<h4><a href="assert-that.html">assertThat</a></h4>
+</td>
+<td>
+<p>Asserts on the given value with an optional name.</p>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">assertThat</span><span class="symbol">(</span><span class="identifier" id="assertk.Assert$assertThat(assertk.Assert.assertThat.R, kotlin.String)/actual">actual</span><span class="symbol">:</span>&nbsp;<span class="identifier">R</span><span class="symbol">, </span><span class="identifier" id="assertk.Assert$assertThat(assertk.Assert.assertThat.R, kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;this.name<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(common, iosArm64, iosX64, js, jvm, linux, macos) 
+<h4><a href="given.html">given</a></h4>
+</td>
+<td>
+<p>Allows checking the actual value of an assert. This can be used to build your own custom assertions.</p>
+<code><span class="keyword">fun </span><span class="identifier">given</span><span class="symbol">(</span><span class="identifier" id="assertk.Assert$given(kotlin.Function1((assertk.Assert.T, kotlin.Unit)))/assertion">assertion</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(common, iosArm64, iosX64, js, jvm, linux, macos) 
+<h4><a href="transform.html">transform</a></h4>
+</td>
+<td>
+<p>Transforms an assertion from one type to another. If the assertion is failing the resulting assertion will still
+be failing, otherwise the mapping function is called. An optional name can be provided, otherwise this
+assertion's name will be used.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">transform</span><span class="symbol">(</span><span class="identifier" id="assertk.Assert$transform(kotlin.String, kotlin.Function1((assertk.Assert.T, assertk.Assert.transform.R)))/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;this.name<span class="symbol">, </span><span class="identifier" id="assertk.Assert$transform(kotlin.String, kotlin.Function1((assertk.Assert.T, assertk.Assert.transform.R)))/transform">transform</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/bytes.html">bytes</a></h4>
+</td>
+<td>
+<p>Returns an assert on the file's contents as bytes.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">bytes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">&gt;</span></code>
+<p>Assert on file bytes</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">bytes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html"><span class="identifier">ByteArray</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/does-not-have-class.html">doesNotHaveClass</a></h4>
+</td>
+<td>
+<p>Asserts the value does not have the expected java class. This is an exact match, so
+<code>assertThat("test").doesNotHaveClass(String::class.java)</code> is fails but <code>assertThat("test").doesNotHaveClass(Any::class.java)</code>
+is successful.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">doesNotHaveClass</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$doesNotHaveClass(assertk.Assert((assertk.assertions.doesNotHaveClass.T)), java.lang.Class((assertk.assertions.doesNotHaveClass.T)))/jclass">jclass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/exists.html">exists</a></h4>
+</td>
+<td>
+<p>Asserts the file exists.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">exists</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/extension.html">extension</a></h4>
+</td>
+<td>
+<p>Returns an assert on the file's extension.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">extension</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-class.html">hasClass</a></h4>
+</td>
+<td>
+<p>Asserts the value has the expected java class. This is an exact match, so
+<code>assertThat("test").hasClass(String::class.java)</code> is successful but <code>assertThat("test").hasClass(Any::class.java)</code> fails.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasClass</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasClass(assertk.Assert((assertk.assertions.hasClass.T)), java.lang.Class((assertk.assertions.hasClass.T)))/jclass">jclass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-direct-child.html">hasDirectChild</a></h4>
+</td>
+<td>
+<p>Asserts the file has the expected direct child.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasDirectChild</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasDirectChild(assertk.Assert((java.io.File)), java.io.File)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-extension.html">hasExtension</a></h4>
+</td>
+<td>
+<p>Asserts the file has the expected extension.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasExtension</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasExtension(assertk.Assert((java.io.File)), kotlin.String)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-name.html">hasName</a></h4>
+</td>
+<td>
+<p>Asserts the file has the expected name.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasName</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasName(assertk.Assert((java.io.File)), kotlin.String)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-not-same-content-as.html">hasNotSameContentAs</a></h4>
+</td>
+<td>
+<p>Asserts that the actual stream has a different content as the expected stream.
+Both <a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html">InputStream</a>s will be closed by the assertion.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasNotSameContentAs</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasNotSameContentAs(assertk.Assert((java.io.InputStream)), java.io.InputStream)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-parent.html">hasParent</a></h4>
+</td>
+<td>
+<p>Asserts the file has the expected parent path.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasParent</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasParent(assertk.Assert((java.io.File)), kotlin.String)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-path.html">hasPath</a></h4>
+</td>
+<td>
+<p>Asserts the file has the expected path.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasPath</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasPath(assertk.Assert((java.io.File)), kotlin.String)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-same-content-as.html">hasSameContentAs</a></h4>
+</td>
+<td>
+<p>Asserts that the actual stream has the same content as the expected stream.
+Both <a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html">InputStream</a>s will be closed by the assertion.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasSameContentAs</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasSameContentAs(assertk.Assert((java.io.InputStream)), java.io.InputStream)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/io/InputStream.html"><span class="identifier">InputStream</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/has-text.html">hasText</a></h4>
+</td>
+<td>
+<p>Asserts the file contains exactly the expected text (and nothing else).</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">hasText</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$hasText(assertk.Assert((java.io.File)), kotlin.String, java.nio.charset.Charset)/expected">expected</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="assertk.assertions$hasText(assertk.Assert((java.io.File)), kotlin.String, java.nio.charset.Charset)/charset">charset</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/nio/charset/Charset.html"><span class="identifier">Charset</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Charsets.UTF_8<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-data-class-equal-to.html">isDataClassEqualTo</a></h4>
+</td>
+<td>
+<p>Like <a href="../../assertk.assertions/is-equal-to.html#assertk.assertions$isEqualTo(assertk.Assert((kotlin.ByteArray)), kotlin.ByteArray)">isEqualTo</a> but reports exactly which properties differ. Only supports data classes. Note: you should
+<em>not</em> use this if your data class has a custom <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html">Any.equals</a> since it can be misleading.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isDataClassEqualTo</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$isDataClassEqualTo(assertk.Assert((assertk.assertions.isDataClassEqualTo.T)), assertk.assertions.isDataClassEqualTo.T)/expected">expected</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-directory.html">isDirectory</a></h4>
+</td>
+<td>
+<p>Asserts the file is a directory.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isDirectory</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Assert that the path is a directory.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isDirectory</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="assertk.assertions$isDirectory(assertk.Assert((java.nio.file.Path)), kotlin.Array((java.nio.file.LinkOption)))/options">options</span><span class="symbol">:</span>&nbsp;<span class="identifier">LinkOption</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-equal-to-ignoring-given-properties.html">isEqualToIgnoringGivenProperties</a></h4>
+</td>
+<td>
+<p>Returns an assert that compares for all properties except the given properties on the calling class</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isEqualToIgnoringGivenProperties</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$isEqualToIgnoringGivenProperties(assertk.Assert((assertk.assertions.isEqualToIgnoringGivenProperties.T)), assertk.assertions.isEqualToIgnoringGivenProperties.T, kotlin.Array((kotlin.reflect.KProperty1((assertk.assertions.isEqualToIgnoringGivenProperties.T, kotlin.Any)))))/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="assertk.assertions$isEqualToIgnoringGivenProperties(assertk.Assert((assertk.assertions.isEqualToIgnoringGivenProperties.T)), assertk.assertions.isEqualToIgnoringGivenProperties.T, kotlin.Array((kotlin.reflect.KProperty1((assertk.assertions.isEqualToIgnoringGivenProperties.T, kotlin.Any)))))/properties">properties</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property1/index.html"><span class="identifier">KProperty1</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-executable.html">isExecutable</a></h4>
+</td>
+<td>
+<p>Assert that the path is an executable.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isExecutable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-file.html">isFile</a></h4>
+</td>
+<td>
+<p>Asserts the file is a simple file (not a directory).</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isFile</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-hidden.html">isHidden</a></h4>
+</td>
+<td>
+<p>Asserts the file is hidden.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isHidden</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Assert that the path is hidden.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isHidden</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-instance-of.html">isInstanceOf</a></h4>
+</td>
+<td>
+<p>Asserts the value is an instance of the expected java class. Both <code>assertThat("test").isInstanceOf(String::class.java)</code>
+and <code>assertThat("test").isInstanceOf(Any::class.java)</code> is successful.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier">S</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isInstanceOf</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$isInstanceOf(assertk.Assert((assertk.assertions.isInstanceOf.T)), java.lang.Class((assertk.assertions.isInstanceOf.S)))/jclass">jclass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">, </span><span class="identifier">S</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><s><span class="identifier">isInstanceOf</span></s><span class="symbol">(</span><span class="identifier" id="assertk.assertions$isInstanceOf(assertk.Assert((assertk.assertions.isInstanceOf.T)), java.lang.Class((assertk.assertions.isInstanceOf.S)), kotlin.Function1((assertk.Assert((assertk.assertions.isInstanceOf.S)), kotlin.Unit)))/jclass">jclass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="assertk.assertions$isInstanceOf(assertk.Assert((assertk.assertions.isInstanceOf.T)), java.lang.Class((assertk.assertions.isInstanceOf.S)), kotlin.Function1((assertk.Assert((assertk.assertions.isInstanceOf.S)), kotlin.Unit)))/f">f</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-not-hidden.html">isNotHidden</a></h4>
+</td>
+<td>
+<p>Asserts the file is not hidden.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isNotHidden</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-not-instance-of.html">isNotInstanceOf</a></h4>
+</td>
+<td>
+<p>Asserts the value is not an instance of the expected java class. Both <code>assertThat("test").isNotInstanceOf(String::class)</code>
+and <code>assertThat("test").isNotInstanceOf(Any::class)</code> fails.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isNotInstanceOf</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$isNotInstanceOf(assertk.Assert((assertk.assertions.isNotInstanceOf.T)), java.lang.Class((assertk.assertions.isNotInstanceOf.T)))/jclass">jclass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-readable.html">isReadable</a></h4>
+</td>
+<td>
+<p>Assert that the path is readable.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isReadable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-regular-file.html">isRegularFile</a></h4>
+</td>
+<td>
+<p>Assert that the path is a regular file.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isRegularFile</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="assertk.assertions$isRegularFile(assertk.Assert((java.nio.file.Path)), kotlin.Array((java.nio.file.LinkOption)))/options">options</span><span class="symbol">:</span>&nbsp;<span class="identifier">LinkOption</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-same-file-as.html">isSameFileAs</a></h4>
+</td>
+<td>
+<p>Assert that the path points to the same object as the other path.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isSameFileAs</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$isSameFileAs(assertk.Assert((java.nio.file.Path)), java.nio.file.Path)/expected">expected</span><span class="symbol">:</span>&nbsp;<span class="identifier">Path</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-symbolic-link.html">isSymbolicLink</a></h4>
+</td>
+<td>
+<p>Assert that the path is a symbolic link.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isSymbolicLink</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/is-writable.html">isWritable</a></h4>
+</td>
+<td>
+<p>Assert that the path is writable link.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isWritable</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/j-class.html">jClass</a></h4>
+</td>
+<td>
+<p>Returns an assert on the java class of the value.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">jClass</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/lines.html">lines</a></h4>
+</td>
+<td>
+<p>Assert on file lines</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">Path</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">lines</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$lines(assertk.Assert((java.nio.file.Path)), java.nio.charset.Charset)/charset">charset</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/nio/charset/Charset.html"><span class="identifier">Charset</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Charsets.UTF_8<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/name.html">name</a></h4>
+</td>
+<td>
+<p>Returns an assert on the file's name.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">name</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/parent.html">parent</a></h4>
+</td>
+<td>
+<p>Returns an assert on the file's parent.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">parent</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/path.html">path</a></h4>
+</td>
+<td>
+<p>Returns an assert on the file's path.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">path</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">!</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/prop.html">prop</a></h4>
+</td>
+<td>
+<p>Returns an assert that asserts on the given property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">, </span><span class="identifier">P</span><span class="symbol">&gt;</span> <a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">prop</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$prop(assertk.Assert((assertk.assertions.prop.T)), kotlin.reflect.KCallable((assertk.assertions.prop.P)))/callable">callable</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-callable/index.html"><span class="identifier">KCallable</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/stack-trace.html">stackTrace</a></h4>
+</td>
+<td>
+<p>Returns an assert on the throwable's stack trace.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/index.html"><span class="identifier">Throwable</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">stackTrace</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+(jvm) 
+<h4><a href="../../assertk.assertions/text.html">text</a></h4>
+</td>
+<td>
+<p>Returns an assert on the file's contents as text.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">text</span><span class="symbol">(</span><span class="identifier" id="assertk.assertions$text(assertk.Assert((java.io.File)), java.nio.charset.Charset)/charset">charset</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/nio/charset/Charset.html"><span class="identifier">Charset</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Charsets.UTF_8<span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">Assert</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
