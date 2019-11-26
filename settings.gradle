@@ -1,3 +1,12 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        gradlePluginPortal()
+    }
+}
+
 rootProject.name = 'assertk'
 
 include 'java-interop'
